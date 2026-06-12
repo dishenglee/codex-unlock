@@ -1,0 +1,4 @@
+AGENTS.md.bak
+*.pyc
+__pycache__/
+.DS_Store

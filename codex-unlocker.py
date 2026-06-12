@@ -63,7 +63,7 @@ def find_codex_paths():
     if codex_home.exists():
         results["codex_home"] = str(codex_home)
         results["config_file"] = str(codex_home / "config.toml")
-        agents = codex_home / "AGENTS.md"
+        agents = codex_home / "智能检测（官方→model_instructions / 中转→AGENTS.md）"
         if agents.exists():
             results["agents_file"] = str(agents)
         # 检查备份
@@ -111,6 +111,18 @@ def is_patched(paths):
 
 
 def apply_patch(paths, log_callback):
+    # 检测 API 类型
+    config_path = paths.get("config_file")
+    is_official = False
+    if config_path and os.path.exists(config_path):
+        try:
+            with open(config_path) as f:
+                config_text = f.read()
+            is_official = "api.openai.com" in config_text
+        except:
+            pass
+    method = "model_instructions_file" if is_official else "AGENTS.md"
+    log_callback(f"API: {'官方 OpenAI → model_instructions_file' if is_official else '中转/代理 → AGENTS.md'}", "dim")
     """打补丁"""
     codex_home = paths.get("codex_home")
     if not codex_home:
@@ -213,7 +225,7 @@ class CodexUnlocker:
         ).pack(side="left", padx=20, pady=10)
 
         ver = tk.Label(
-            header, text="v2.0  |  跨平台 GUI",
+            header, text="v4.0 | 智能检测 API",
             fg=C["dim"], bg=C["panel"], font=("sans-serif", 10),
         )
         ver.pack(side="right", padx=20, pady=10)

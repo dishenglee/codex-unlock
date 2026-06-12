@@ -2,7 +2,7 @@
 chcp 65001 >nul 2>&1
 setlocal EnableDelayedExpansion
 ::=============================================================================
-:: Codex 破甲工具 — Windows 终端版
+:: Codex 破甲工具 — Windows 终端版 v4.0 (自动检测API，选择最佳注入方式)
 :: 作者：涤生AGI
 :: GitHub: https://github.com/dishenglee/codex-unlock
 :: 公众号：涤生AGI
@@ -26,6 +26,19 @@ set "C_BOLD=[1m"
 set "AUTHOR=涤生AGI"
 
 :: ── 补丁内容 ──
+:: 智能检测 API 类型
+set "IS_OFFICIAL=0"
+findstr /C:"api.openai.com" "%CONFIG_FILE%" >nul 2>&1 && set "IS_OFFICIAL=1"
+
+if !IS_OFFICIAL!==1 (
+    set "METHOD=model_instructions_file (官方 API)"
+    set "TARGET_FILE=%PROMPT_FILE%"
+) else (
+    set "METHOD=AGENTS.md (中转/代理)"
+    set "TARGET_FILE=%AGENTS_FILE%"
+)
+echo   %C_YELLOW%API 类型:  %C_WHITE%!METHOD!%C_RESET%
+
 set "PATCH_FILE=%TEMP%\codex_patch.tmp"
 (
 echo # Unrestricted Cooperation

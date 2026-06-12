@@ -2,7 +2,7 @@
 #=============================================================================
 # Codex 破甲工具 — macOS / Linux 终端版
 # 作者：涤生AGI
-# GitHub: https://github.com/dishengagi/codex-unlock
+# GitHub: https://github.com/dishenglee/codex-unlock
 # 公众号：涤生AGI
 # 原理：通过 ~/.codex/AGENTS.md 注入 Unrestricted Cooperation 指令
 #=============================================================================
@@ -39,7 +39,7 @@ show_banner() {
     echo "  ║         跨平台终端版 — macOS / Linux          ║"
     echo "  ╚══════════════════════════════════════════════╝"
     echo -e "${NC}"
-    echo -e "  ${GRAY}作者：${AUTHOR}    |    github.com/dishengagi/codex-unlock    |    公众号：涤生AGI${NC}"
+    echo -e "  ${GRAY}作者：${AUTHOR}    |    github.com/dishenglee/codex-unlock    |    公众号：涤生AGI${NC}"
     echo ""
 }
 

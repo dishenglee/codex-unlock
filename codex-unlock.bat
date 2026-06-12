@@ -4,7 +4,7 @@ setlocal EnableDelayedExpansion
 ::=============================================================================
 :: Codex 破甲工具 — Windows 终端版
 :: 作者：涤生AGI
-:: GitHub: https://github.com/dishengagi/codex-unlock
+:: GitHub: https://github.com/dishenglee/codex-unlock
 :: 公众号：涤生AGI
 ::=============================================================================
 
@@ -44,7 +44,7 @@ echo   ║       🛡️   Codex 破甲工具  v2.0                 ║
 echo   ║           macOS / Linux / Windows 终端版         ║
 echo   ╚══════════════════════════════════════════════════╝
 echo %C_RESET%
-echo   %C_GRAY%作者：%AUTHOR%%C_RESET%  %C_GRAY%│%C_RESET%  github.com/dishengagi/codex-unlock  %C_GRAY%│%C_RESET%  公众号：涤生AGI
+echo   %C_GRAY%作者：%AUTHOR%%C_RESET%  %C_GRAY%│%C_RESET%  github.com/dishenglee/codex-unlock  %C_GRAY%│%C_RESET%  公众号：涤生AGI
 echo.
 
 :: ── 检测 Codex ──
@@ -248,7 +248,7 @@ goto :show_banner
 :quit
 del "%PATCH_FILE%" >nul 2>&1
 echo.
-echo   %C_GRAY%👤 作者：%AUTHOR%%C_RESET%  %C_GRAY%│%C_RESET%  github.com/dishengagi/codex-unlock  %C_GRAY%│%C_RESET%  公众号：涤生AGI
+echo   %C_GRAY%👤 作者：%AUTHOR%%C_RESET%  %C_GRAY%│%C_RESET%  github.com/dishenglee/codex-unlock  %C_GRAY%│%C_RESET%  公众号：涤生AGI
 echo   %C_GRAY%仅限个人学习研究使用%C_RESET%
 echo.
 endlocal

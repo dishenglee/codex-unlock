@@ -2,7 +2,7 @@
 """
 Codex 破甲工具 — 跨平台可视化版
 作者：涤生AGI
-GitHub: https://github.com/dishengagi/codex-unlock
+GitHub: https://github.com/dishenglee/codex-unlock
 公众号：涤生AGI
 """
 
@@ -323,7 +323,7 @@ class CodexUnlocker:
 
         tk.Label(
             footer,
-            text=f"👤 作者：{AUTHOR}    |    🐙 github.com/dishengagi/codex-unlock    |    公众号：涤生AGI    |    仅限个人学习研究使用",
+            text=f"👤 作者：{AUTHOR}    |    🐙 github.com/dishenglee/codex-unlock    |    公众号：涤生AGI    |    仅限个人学习研究使用",
             fg=C["dim"], bg=C["panel"],
             font=("sans-serif", 9),
         ).pack(side="left", padx=16, pady=4)

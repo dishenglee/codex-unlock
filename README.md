@@ -36,6 +36,6 @@ bash codex-unlock.sh --restore
 ---
 
 > 👤 作者：涤生AGI  
-> 🐙 GitHub: [github.com/dishengagi/codex-unlock](https://github.com/dishengagi/codex-unlock)  
+> 🐙 GitHub: [github.com/dishenglee/codex-unlock](https://github.com/dishenglee/codex-unlock)  
 > 📡 公众号：涤生AGI  
 > ⚠️ 仅限个人学习研究使用，请遵守当地法律

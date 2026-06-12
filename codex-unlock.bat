@@ -51,8 +51,8 @@ echo.
 echo %C_BLUE%[1/3]%C_RESET% 正在检测 Codex 安装...
 
 set "CODEX_HOME=%USERPROFILE%\.codex"
-set "AGENTS_FILE=%CODEX_HOME%\AGENTS.md"
-set "BACKUP_FILE=%CODEX_HOME%\AGENTS.md.bak"
+set "AGENTS_FILE=%CODEX_HOME%\system-prompt.md"
+set "BACKUP_FILE=%CODEX_HOME%\system-prompt.md.bak"
 set "CONFIG_FILE=%CODEX_HOME%\config.toml"
 
 set "FOUND_HOME=0"
@@ -111,7 +111,7 @@ if !IS_PATCHED!==1 (
 
 echo.
 echo %C_BLUE%[3/3]%C_RESET% 目标文件...
-echo   AGENTS.md : %AGENTS_FILE%
+echo   system-prompt.md : %AGENTS_FILE%
 if exist "%AGENTS_FILE%" (
     echo   %C_GRAY%           (已存在，操作前会自动备份)%C_RESET%
 )
@@ -130,7 +130,7 @@ if !IS_PATCHED!==1 (
     echo   %C_GREEN%[R]%C_RESET%  还原 — 删除补丁，恢复默认行为
     echo   %C_GRAY%[Q]%C_RESET%  退出
 ) else (
-    echo   %C_GREEN%[1]%C_RESET%  一键破甲 — 写入补丁到 AGENTS.md
+    echo   %C_GREEN%[1]%C_RESET%  一键破甲 — 写入补丁到 system-prompt.md
     echo   %C_YELLOW%[2]%C_RESET%  预览补丁 — 查看将要写入的内容
     echo   %C_GRAY%[Q]%C_RESET%  退出
 )
@@ -171,7 +171,7 @@ if /i not "!CONFIRM!"=="y" (
 :: 备份
 if exist "%AGENTS_FILE%" (
     copy /y "%AGENTS_FILE%" "%BACKUP_FILE%" >nul
-    echo   %C_GREEN%📦%C_RESET% 已备份原文件 → AGENTS.md.bak
+    echo   %C_GREEN%📦%C_RESET% 已备份原文件 → system-prompt.md.bak
 )
 
 :: 写入
@@ -183,7 +183,7 @@ if exist "%CONFIG_FILE%" (
     findstr /c:"model_instructions_file" "%CONFIG_FILE%" >nul 2>&1
     if !errorlevel!==0 (
         echo   %C_YELLOW%⚠%C_RESET%  检测到 config.toml 中有无效的 model_instructions_file
-        echo   %C_GRAY%     (该配置对中转 API 无效，AGENTS.md 已替代)%C_RESET%
+        echo   %C_GRAY%     (该配置对中转 API 无效，system-prompt.md 已替代)%C_RESET%
     )
 )
 
@@ -222,7 +222,7 @@ if /i not "!CONFIRM!"=="y" (
 if exist "%BACKUP_FILE%" (
     copy /y "%BACKUP_FILE%" "%AGENTS_FILE%" >nul
     echo   %C_GREEN%🔄%C_RESET% 已从备份还原 → %AGENTS_FILE%
-    echo   %C_GRAY%   备份保留: AGENTS.md.bak%C_RESET%
+    echo   %C_GRAY%   备份保留: system-prompt.md.bak%C_RESET%
 ) else (
     if exist "%AGENTS_FILE%" (
         del "%AGENTS_FILE%" >nul 2>&1
